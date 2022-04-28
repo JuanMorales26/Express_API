@@ -35,7 +35,7 @@ describe("Unit test for Express_API_HTTP_Methods", () => {
           })
       })
 
-     /** test("Post /v1/explorers", (done) => {
+     test("Post /v1/explorers", (done) => {
         request(app)
           .post("/v1/explorers")
           .expect("Content-Type", /json/)
@@ -43,11 +43,11 @@ describe("Unit test for Express_API_HTTP_Methods", () => {
 
           .expect(201)
           .expect((res) => {
-              expect(res.body).toBe("Cliente_Nuevo")
+              expect(res.body.message).toBe("Created")
           })
           .end((err, res) => {
             if (err) return done(err);
             return done();
           })
-      })*/
+      })
 })
