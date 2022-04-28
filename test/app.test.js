@@ -65,4 +65,18 @@ describe("Unit test for Express_API_HTTP_Methods", () => {
             return done();
           })
       })
+
+      test("Delete /v1/explorers/:id", (done) => {
+        request(app)
+          .delete("/v1/explorers/1")
+          .expect("Content-Type", /json/)
+          .expect(200)
+          .expect((res) => {
+              expect(res.body.message).toBe("Deleted!")
+          })
+          .end((err, res) => {
+            if (err) return done(err);
+            return done();
+          })
+      })
 })
