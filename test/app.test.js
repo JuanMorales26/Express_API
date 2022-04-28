@@ -50,4 +50,19 @@ describe("Unit test for Express_API_HTTP_Methods", () => {
             return done();
           })
       })
+
+      test("Put /v1/explorers/:id", (done) => {
+        request(app)
+          .put("/v1/explorers/1")
+          .expect("Content-Type", /json/)
+          .send({name:"Juan"})
+          .expect(200)
+          .expect((res) => {
+              expect(res.body.message).toBe("Updated!")
+          })
+          .end((err, res) => {
+            if (err) return done(err);
+            return done();
+          })
+      })
 })
